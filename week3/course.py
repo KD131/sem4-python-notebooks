@@ -5,3 +5,6 @@ class Course:
         self.teacher = teacher
         self.ects = ects
         self.grade = grade
+
+    def __repr__(self) -> str:
+        return "Course(%r, %r, %r, %r, %r)" % (self.name, self.classroom, self.teacher, self.ects, self.grade)
