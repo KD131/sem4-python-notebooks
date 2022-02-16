@@ -1,5 +1,9 @@
+import csv
+import platform
 import random as rnd
 from string import ascii_letters, ascii_uppercase
+from typing import List
+
 from course import Course
 from data_sheet import DataSheet
 from student import Student
@@ -31,6 +35,9 @@ def generate_students(num: int):
         courses = generate_courses(4)
         image_url = "".join(rnd.choices(ascii_letters, k=8))
         students.append(Student(f"{fname} {lname}", gender, DataSheet(courses), image_url))
+
+    write_students_to_csv(students)
+
     return students
         
 def generate_courses(num: int):
@@ -44,4 +51,22 @@ def generate_courses(num: int):
         courses.append(Course(name, classroom, teacher, ects, grade))
     return courses
 
-print(generate_students(4))
+def write_students_to_csv(students: List[Student]):
+    # this capitalised type hint syntax is only for python v. 3.8 or earlier
+    if platform.system() is "Windows":
+        newline = ""
+    else:
+        newline = None
+
+    with open("students.csv", "w", newline=newline) as file:
+        # DictWriter is also really cool but perhaps not usuable here for three reasons.
+        # 1. Objects are not dicts. I'd have to convert it first.
+        # 2. The fields are spread out across inner objects as well.
+        # 3. The headers requested for the CSV don't match the field names exactly.
+        writer = csv.writer(file)
+        writer.writerow(["stud_name", "course_name", "teacher", "gender", "ects", "classroom", "grade", "img_url"])
+        for s in students:
+            for c in s.data_sheet.courses:
+                writer.writerow([s.name, c.name, c.teacher, s.gender, c.ects, c.classroom, c.grade, s.image_url])
+
+generate_students(4)

@@ -1,5 +1,6 @@
 class Course:
-    def __init__(self, name, classroom, teacher, ects, grade=0):
+    # Python for VS Code breaks syntax highlighting when using function return type arrows
+    def __init__(self, name, classroom, teacher, ects, grade=0) -> None:
         self.name = name
         self.classroom = classroom
         self.teacher = teacher

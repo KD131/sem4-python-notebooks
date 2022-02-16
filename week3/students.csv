@@ -1,0 +1,17 @@
+stud_name,course_name,teacher,gender,ects,classroom,grade,img_url
+Eva Shakespeare,Biology,PE,female,15,D328,4,oLizDcWo
+Eva Shakespeare,History,FR,female,20,B334,3,oLizDcWo
+Eva Shakespeare,Physics,LK,female,15,F247,5,oLizDcWo
+Eva Shakespeare,Mathematics,JA,female,30,B181,3,oLizDcWo
+David Murduck,Biology,CY,male,30,B205,5,yIslTwvM
+David Murduck,Mathematics,XQ,male,20,D372,5,yIslTwvM
+David Murduck,Chemistry,PX,male,10,E183,4,yIslTwvM
+David Murduck,Music,ZV,male,20,D382,2,yIslTwvM
+Anne Longdon,Gymnastics,UJ,female,10,D358,4,cNNcDmIx
+Anne Longdon,Mathematics,NX,female,20,A336,2,cNNcDmIx
+Anne Longdon,Physics,VT,female,15,F129,1,cNNcDmIx
+Anne Longdon,Chemistry,XN,female,10,A344,1,cNNcDmIx
+Sophie Vreeland,Gymnastics,LK,female,10,C311,3,ffDvMoEe
+Sophie Vreeland,Biology,JC,female,30,F304,1,ffDvMoEe
+Sophie Vreeland,Chemistry,LM,female,10,B248,4,ffDvMoEe
+Sophie Vreeland,English Literature,MG,female,30,A326,3,ffDvMoEe

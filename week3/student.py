@@ -2,6 +2,7 @@ from statistics import mean
 
 from data_sheet import DataSheet
 
+# Python for VS Code breaks syntax highlighting when using function return type arrows
 
 class Student:
     def __init__(self, name, gender, data_sheet: DataSheet, image_url) -> None:
