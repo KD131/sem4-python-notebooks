@@ -23,7 +23,7 @@ def generate_students(num: int):
         elif gender is "female":
             fname = rnd.choice(fnames_female)
         lname = rnd.choice(last_names)
-        courses = generate_courses(4) # could also be randomised
+        courses = generate_courses(rnd.randint(1, len(course_names))) # could also be randomised
         image_url = "".join(rnd.choices(ascii_letters, k=8))
         students.append(Student(f"{fname} {lname}", gender, DataSheet(courses), image_url))
 
@@ -71,9 +71,9 @@ def read_students_from_csv():
                 student.data_sheet.courses.append(course)
             else:
                 students.append(Student(row[0], row[3], DataSheet([course]), row[7]))
-                
+
     return students
 
 # would make a lot of sense to also implement as a CLI program with args.
 if __name__ == "__main__":
-    write_students_to_csv(generate_students(4))
+    write_students_to_csv(generate_students(10))

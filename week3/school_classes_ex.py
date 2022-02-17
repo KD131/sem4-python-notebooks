@@ -25,4 +25,8 @@ students.sort(key=lambda s: s.get_average_grade(), reverse=True)
 for s in students:
     print(f"{s.name}, URL: {s.image_url}, avg. grade: {s.get_average_grade()}")
 
+print("\n% progress\n=================")
 print(f"Test Student s1 ({s1.name}): {s1.get_total_progress()}% of the way")
+
+for s in students:
+    print(f"({s.name}): {s.get_total_progress()}% of the way")
