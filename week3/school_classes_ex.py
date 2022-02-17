@@ -2,6 +2,7 @@ from course import Course
 from data_sheet import DataSheet
 from student_generator import read_students_from_csv
 from student import Student
+from best_students import three_closest_to_completion
 
 c1 = Course("Mathematics", "A102", "OJ", 20, 3)
 c2 = Course("English Literature", "C210", "JW", 10, 2)
@@ -35,5 +36,5 @@ print(next(iter(s1.data_sheet)))
 for c in s1.data_sheet:
     print(c)
 
-for s in Student.three_closest_to_completion(students):
+for s in three_closest_to_completion(students):
     print(s.name, s.get_total_progress())
