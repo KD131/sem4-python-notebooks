@@ -16,3 +16,7 @@ class Student:
 
     def get_average_grade(self):
         return mean(self.data_sheet.get_grades_as_list())
+
+    def get_total_progress(self):
+        """Returns percentage as number"""
+        return (sum([c.ects for c in self.data_sheet.courses])/150)*100
