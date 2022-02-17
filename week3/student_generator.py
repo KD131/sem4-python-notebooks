@@ -38,6 +38,7 @@ def generate_courses(num: int):
         ects = rnd.choice([10, 15, 20, 30])
         grade = rnd.randint(1, 5)
         courses.append(Course(name, classroom, teacher, ects, grade))
+
     return courses
 
 def write_students_to_csv(students: List[Student]):
@@ -57,6 +58,21 @@ def write_students_to_csv(students: List[Student]):
         for s in students:
             for c in s.data_sheet.courses:
                 writer.writerow([s.name, c.name, c.teacher, s.gender, c.ects, c.classroom, c.grade, s.image_url])
+
+def read_students_from_csv():
+    students = []
+    with open("students.csv") as file:
+        reader = csv.reader(file)
+        headers = next(reader)
+        for row in reader:
+            course = Course(row[1], row[5], row[2], int(row[4]), int(row[6]))
+            student = next((s for s in students if s.image_url == row[7]), None) #using image_url as id because it's the closest we have to it.
+            if student:
+                student.data_sheet.courses.append(course)
+            else:
+                students.append(Student(row[0], row[3], DataSheet([course]), row[7]))
+                
+    return students
 
 # would make a lot of sense to also implement as a CLI program with args.
 if __name__ == "__main__":
