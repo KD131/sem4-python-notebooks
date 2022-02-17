@@ -1,0 +1,21 @@
+stud_name,course_name,teacher,gender,ects,classroom,grade,img_url
+William Thompson,History,LS,male,15,A231,3,jXnminNT
+William Thompson,Music,FX,male,20,E210,3,jXnminNT
+William Thompson,Gymnastics,DN,male,15,E153,3,jXnminNT
+William Thompson,Mathematics,ZL,male,20,E115,4,jXnminNT
+William Thompson,Physics,QX,male,20,C378,2,jXnminNT
+William Thompson,Chemistry,TR,male,20,E218,2,jXnminNT
+William Thompson,English Literature,WW,male,15,A295,3,jXnminNT
+William Thompson,Social Sciences,IF,male,30,E331,2,jXnminNT
+Camilla Watson,Music,AC,female,15,F278,1,fojjmVNR
+Camilla Watson,Social Sciences,MH,female,30,E382,4,fojjmVNR
+Camilla Watson,Mathematics,TW,female,30,D233,5,fojjmVNR
+Camilla Watson,English Literature,LL,female,15,E143,3,fojjmVNR
+Camilla Watson,Gymnastics,DI,female,20,C297,5,fojjmVNR
+Camilla Watson,Chemistry,IP,female,10,A236,2,fojjmVNR
+Camilla Watson,Physics,YA,female,20,E149,4,fojjmVNR
+Matthew Longdon,Gymnastics,UT,male,15,E188,3,UDHuPcBH
+Matthew Longdon,History,ZC,male,30,F261,4,UDHuPcBH
+Matthew Longdon,English Literature,YR,male,30,C257,2,UDHuPcBH
+Matthew Longdon,Chemistry,UC,male,10,D388,1,UDHuPcBH
+Matthew Longdon,Social Sciences,HB,male,10,D212,1,UDHuPcBH

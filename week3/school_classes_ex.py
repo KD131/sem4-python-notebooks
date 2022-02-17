@@ -14,7 +14,7 @@ print(s1.data_sheet.get_grades_as_list())
 print(s1.get_average_grade())
 
 
-students = read_students_from_csv()
+students = read_students_from_csv("students.csv")
 
 for s in students:
     print(f"{s.name}, URL: {s.image_url}, avg. grade: {s.get_average_grade()}")

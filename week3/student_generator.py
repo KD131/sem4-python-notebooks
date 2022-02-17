@@ -41,14 +41,14 @@ def generate_courses(num: int):
 
     return courses
 
-def write_students_to_csv(students: List[Student]):
+def write_students_to_csv(students: List[Student], filename: str):
     # this capitalised type hint syntax is only for python v. 3.8 or earlier
     if platform.system() is "Windows":
         newline = ""
     else:
         newline = None
 
-    with open("students.csv", "w", newline=newline) as file:
+    with open(filename, "w", newline=newline) as file:
         # DictWriter is also really cool but perhaps not usuable here for three reasons.
         # 1. Objects are not dicts. I'd have to convert it first.
         # 2. The fields are spread out across inner objects as well.
@@ -59,9 +59,9 @@ def write_students_to_csv(students: List[Student]):
             for c in s.data_sheet.courses:
                 writer.writerow([s.name, c.name, c.teacher, s.gender, c.ects, c.classroom, c.grade, s.image_url])
 
-def read_students_from_csv():
+def read_students_from_csv(filename: str):
     students = []
-    with open("students.csv") as file:
+    with open(filename) as file:
         reader = csv.reader(file)
         headers = next(reader)
         for row in reader:
@@ -76,4 +76,4 @@ def read_students_from_csv():
 
 # would make a lot of sense to also implement as a CLI program with args.
 if __name__ == "__main__":
-    write_students_to_csv(generate_students(10))
+    write_students_to_csv(generate_students(10), "students.csv")
