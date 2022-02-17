@@ -30,3 +30,7 @@ print(f"Test Student s1 ({s1.name}): {s1.get_total_progress()}% of the way")
 
 for s in students:
     print(f"({s.name}): {s.get_total_progress()}% of the way")
+
+print(next(iter(s1.data_sheet)))
+for c in s1.data_sheet:
+    print(c)
