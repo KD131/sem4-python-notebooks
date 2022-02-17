@@ -6,6 +6,9 @@ from data_sheet import DataSheet
 
 # Python for VS Code breaks syntax highlighting when using function return type arrows
 
+class NotEnoughStudentsException(Exception):
+    pass
+
 class Student:
     def __init__(self, name, gender, data_sheet: DataSheet, image_url) -> None:
         self.name = name
@@ -25,4 +28,6 @@ class Student:
 
     @staticmethod
     def three_closest_to_completion(students: List["Student"]):
+        if len(students) < 3:
+            raise NotEnoughStudentsException
         return sorted(students, key=lambda s: s.get_total_progress(), reverse=True)[:3]
