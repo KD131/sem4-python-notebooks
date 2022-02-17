@@ -28,3 +28,10 @@ with open("students.csv") as file:
 
 for s in students:
     print(f"{s.name}, URL: {s.image_url}, avg. grade: {s.get_average_grade()}")
+
+
+print("\nSorting by avg. grade (desc.)\n=================")
+students.sort(key=lambda s: s.get_average_grade(), reverse=True)
+
+for s in students:
+    print(f"{s.name}, URL: {s.image_url}, avg. grade: {s.get_average_grade()}")
