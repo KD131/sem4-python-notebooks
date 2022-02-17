@@ -1,4 +1,6 @@
+from platform import release
 from statistics import mean
+from typing import List
 
 from data_sheet import DataSheet
 
@@ -20,3 +22,7 @@ class Student:
     def get_total_progress(self):
         """Returns percentage as number"""
         return (sum([c.ects for c in self.data_sheet.courses])/150)*100
+
+    @staticmethod
+    def three_closest_to_completion(students: List["Student"]):
+        return sorted(students, key=lambda s: s.get_total_progress(), reverse=True)[:3]

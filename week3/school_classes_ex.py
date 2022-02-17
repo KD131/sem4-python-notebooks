@@ -34,3 +34,6 @@ for s in students:
 print(next(iter(s1.data_sheet)))
 for c in s1.data_sheet:
     print(c)
+
+for s in Student.three_closest_to_completion(students):
+    print(s.name, s.get_total_progress())

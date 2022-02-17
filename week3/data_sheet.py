@@ -10,9 +10,11 @@ class DataSheet:
         self.courses = courses
 
     def __iter__(self):
-        self.i = 0
-        return self
+        # self.i = 0
+        # return self
+        yield from self.courses
 
+    # probably way better as generator. I didn't think of iter just returning a generator, i.e. it being a generator function.
     def __next__(self):
         if self.i < len(self.courses):
             i = self.i
