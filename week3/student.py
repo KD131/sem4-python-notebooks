@@ -20,3 +20,8 @@ class Student:
     def get_total_progress(self):
         """Returns percentage as number"""
         return (sum([c.ects for c in self.data_sheet.courses])/150)*100
+
+    def get_courses(self):
+        # this is honestly a little pointless, as the data_sheet is already made iterable. It's basically just a getter.
+        # If I used @properties, it would make more sense.
+        return self.data_sheet.courses
