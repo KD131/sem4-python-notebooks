@@ -5,6 +5,12 @@ file_path = "./unisex_navne.xls"
 df = pd.read_excel(file_path, header=None)
 read_names_comp = (name for name in df.iloc[:,0])
 
+# converting dataframe to a series using iloc is a bit clunky,
+# but we had issues converting it to a list or iterrows()
+
+# values.tolist() as August did, probably works.
+# or squeeze().tolist()
+
 print(next(read_names_comp))
 print(next(read_names_comp))
 
