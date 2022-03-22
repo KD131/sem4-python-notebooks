@@ -23,6 +23,11 @@ def plot_babies(babies):
     ax = fig.add_subplot(111, projection="3d")
     ax.scatter(x, y, z, linewidth=0.2)
 
+    plt.title("Babies")
+    ax.set_xlabel("Height (cm)")
+    ax.set_ylabel("Weight (g)")
+    ax.set_zlabel("Age (months)")
+
     plt.show()
 
 babies = generate_babies(20)
