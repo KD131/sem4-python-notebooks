@@ -7,6 +7,7 @@ df = pd.read_csv(url)
 # shows some data
 print(df.head())
 
+
 # 1. Hvor mange monumenter er der i København?
 print("No. monuments:", len(df.index))
 
@@ -18,9 +19,17 @@ print("No. being maintained:", sum(mask_maintenance))
 # 	F.eks:
 # 		def monumentById(monumentId):
 # 			return coordinates
-def monumentById(id):
+def coordsById(id):
+    """Returns coordinates as a tuple (x, y)"""
     # return df[df["id"] == id].iloc[0].loc[["x", "y"]] # returns as series, I think. Some weird number formatting going on though when I printed it.
     mon = df[df["id"] == id].iloc[0]
     return (mon["x"], mon["y"])
 
-print(monumentById(50058))
+coords = coordsById(50058)
+print(coords)
+
+# 4. Find navnet på monumentet med x og y koordinaterne eller længde- og breddegraderne?
+def nameByCoords(x, y):
+    return df[(df["x"] == x) & (df["y"] == y)].iloc[0]["navn"]  # remember those parentheses when using multiple boolean masks
+
+print(nameByCoords(*coords))    # unpacks the tuple from #3
