@@ -53,7 +53,11 @@ cph_lat_lon = get_city_location()
 def plotMonumentOnMap(lat_lon):
     """
     Creates a map and plots the monument on the map. Saves the map to file.
-    param: lat_lon: Latitude and longitude as a tuple (lat, lon)
+
+    Parameters
+    ----------
+    lat_lon : tuple
+        Latitude and longitude (lat, lon)
     """
     m = folium.Map(location=cph_lat_lon, zoom_start=13)
     name = nameByLatLon(*lat_lon)
