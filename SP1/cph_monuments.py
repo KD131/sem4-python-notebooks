@@ -79,3 +79,8 @@ def plotAllMonumentsOnMap():
     m.save("./all_monuments.html")
 
 plotAllMonumentsOnMap()
+
+# 6. Gør kortet interaktiv så navnet på monumenterne vises når man trykker på et plot.
+# (Se afsnittet om 'Interactive plots with bokeh' under notebooks/03-3 Plotting)
+
+# The maps are already interactive using popups in folium, but I haven't looked into bokeh and solved it using that.
