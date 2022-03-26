@@ -69,3 +69,13 @@ def nameByLatLon(lat, lon):
 
 print(nameByCoords(*coords))    # unpacks the tuple from #3
 plotMonumentOnMap(lat_lon)      # The execution of 3.a because I wanted to use the getName function
+
+# 5. Lav en metode der optegner alle monumenterne på kortet ved brug af plotting.
+def plotAllMonumentsOnMap():
+    m = folium.Map(location=cph_lat_lon, zoom_start=13)
+    # iterrows and iterating a DataFrame in general is supposedly an anti-pattern, but I didn't know what else to do.
+    for idx, row in df.iterrows():
+        folium.Marker([row["latitude"], row["longitude"]], popup=row["navn"]).add_to(m)
+    m.save("./all_monuments.html")
+
+plotAllMonumentsOnMap()
