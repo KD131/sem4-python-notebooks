@@ -26,6 +26,9 @@ def source_from_selenium(url):
     return source
 
 def scrape_links(source, *starts_with):
+    """Returns list of links with newline appended for easier writing to file.
+    Could be changed to just a list and then for writing to file, you could iterate it normally and append \n manually, or you could join with \n and append one at the very end.
+    """
     soup = bs4.BeautifulSoup(source, "html.parser")
     links = [link.get("href") + "\n" for link in soup.select("a")
                 if link.get("href")
