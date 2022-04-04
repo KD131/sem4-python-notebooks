@@ -3,7 +3,12 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
-def scrape_links(url, *starts_with):
+def source_from_request(url):
+    r = requests.get(url)
+    r.raise_for_status()
+    return r.text
+
+def source_from_selenium(url):
     options = Options()
     options.headless = True
     browser = webdriver.Firefox(options=options)
@@ -17,10 +22,10 @@ def scrape_links(url, *starts_with):
     
     browser.close()
     browser.quit()
-    
-    # r = requests.get(url)
-    # r.raise_for_status()
 
+    return source
+
+def scrape_links(source, *starts_with):
     soup = bs4.BeautifulSoup(source, "html.parser")
     links = [link.get("href") + "\n" for link in soup.select("a")
                 if link.get("href")
@@ -28,6 +33,7 @@ def scrape_links(url, *starts_with):
     return links
 
 if __name__ == "__main__":
-    links = scrape_links("https://github.com/Hartmannsolution/docker_notebooks/blob/master/notebooks/00%20Videos.ipynb", "https://youtu.be/", "https://youtube.com/")
+    source = source_from_selenium("https://github.com/Hartmannsolution/docker_notebooks/blob/master/notebooks/00%20Videos.ipynb")
+    links = scrape_links(source, "https://youtu.be/", "https://youtube.com/")
     with open("links.txt", "w") as file:
         file.writelines(links)
