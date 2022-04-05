@@ -1,4 +1,5 @@
 import argparse
+from sys import stdout
 
 import bs4
 import requests
@@ -43,6 +44,7 @@ if __name__ == "__main__":
     parser.add_argument("url", type=str, help="The URL to scrape for links.")
     # if refactored to use regex, call it contains or patterns or something
     parser.add_argument("--starts_with", "-s", nargs="*", default=["https://youtu.be/", "https://youtube.com/"], help="What the links should start with to be targeted. Takes more arguments. Default is YouTube links.")
+    parser.add_argument("--dest", "-d", default=stdout, type=argparse.FileType("w"), help="Destination output file to save list of links in. Default prints to console.")
     parser.add_argument("--selenium", action="store_true", help="Uses Selenium to scrape using a simulated browser. Default is using an HTTP request. Use this if the site generates content after loading the page, so a normal request doesn't give the desired result.")
     args = parser.parse_args()
 
@@ -54,5 +56,5 @@ if __name__ == "__main__":
         source = source_from_request(url)
 
     links = scrape_links(source, *args.starts_with)
-    with open("links.txt", "w") as file:
-        file.writelines(links)
+    with args.dest as out:
+        out.writelines(links)
