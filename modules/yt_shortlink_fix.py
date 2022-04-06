@@ -7,6 +7,9 @@ import argparse
 # or using replace('.', '_fix.)
 # I don't think there's support for timestamps. Those might be mangled.
 # Might need regex to isolate the id string. Or a URL path lib.
+
+# There's also a lib from Google to handle shorturls.
+# See here https://github.com/googleapis/google-api-python-client/blob/main/samples/urlshortener/urlshortener.py
 def fix_links(path):
     with open(path, 'r') as fi, open(path.replace('.txt', '_fix.txt'), 'w') as fo:
         for l in fi.readlines():
