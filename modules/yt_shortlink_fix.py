@@ -7,6 +7,7 @@ import argparse
 # or using replace('.', '_fix.)
 # I don't think there's support for timestamps. Those might be mangled.
 # Might need regex to isolate the id string. Or a URL path lib.
+# See yt_get_channel_vids_http.py for details on urllib.
 
 # There's also a lib from Google to handle shorturls.
 # See here https://github.com/googleapis/google-api-python-client/blob/main/samples/urlshortener/urlshortener.py
