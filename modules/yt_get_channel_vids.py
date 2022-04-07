@@ -8,6 +8,8 @@ from api_keys import GOOGLE
 def get_uploads_id(*, id=None, username=None):
     res = yt.channels().list(part='contentDetails', id=id, forUsername=username).execute()
     # assumes a search result and top one is the one we wanted
+    if len(res['items']) <= 0:
+        raise Exception("No search result for id:{}, username:{}".format(id, username))
     return res['items'][0]['contentDetails']['relatedPlaylists']['uploads']
 
 def get_vids(playlist_id):
@@ -33,3 +35,5 @@ if __name__ == '__main__':
             print('There is no uploaded videos playlist for this user.')
     except HttpError as e:
         print('An HTTP error %d occurred:\n%s' % (e.resp.status, e.content))
+    except Exception as e:
+        print(e)
