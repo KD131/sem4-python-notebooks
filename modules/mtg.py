@@ -20,7 +20,7 @@ df = pd.json_normalize(lst).filter(['id', 'name', 'color_identity', 'image_uris.
 # trims out multi-colours, <=1 to include colourless
 df = df[df['color_identity'].apply(lambda x: len(x) == 1)]
 # removes cards with no direct art_crop url, e.g. cards with more faces so the url is further down and more than one.
-df = df[~df['image_uris.art_crop'].isna()]
+df = df[df['image_uris.art_crop'].notna()]
 # print(df[:20])
 # print(len(df))
 
@@ -37,7 +37,7 @@ os.makedirs(images_path, exist_ok=True)
 def download(path, url):
     if not os.path.exists(path):
         r = requests.get(url)
-        # r.raise_for_status()
+        r.raise_for_status()
         with open(path, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024):
                 f.write(chunk)
